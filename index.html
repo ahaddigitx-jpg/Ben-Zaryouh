@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1720">
+<title>LinkedIn Positioning Review | Ben Zaryouh</title>
+<style>
+:root{--ink:#10212b;--muted:#536570;--paper:#f4f7f8;--white:#fff;--line:#dbe4e8;--teal:#00a9bd;--teal-dark:#087e8c;--navy:#0b1720;--soft:#e7f5f6;--gold:#d6a85f;--radius:18px;--shadow:0 18px 48px rgba(15,40,52,.08)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}
+a{color:inherit}
+button{font:inherit}
+button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.topbar{position:sticky;top:0;z-index:20;background:rgba(11,23,32,.96);color:#edf6f7;border-bottom:1px solid rgba(255,255,255,.1);backdrop-filter:blur(12px)}
+.nav{max-width:1180px;margin:auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-size:.77rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;white-space:nowrap}
+.navlinks{display:flex;gap:20px;overflow-x:auto;white-space:nowrap;scrollbar-width:thin}
+.navlinks a{text-decoration:none;color:#c0d0d5;font-size:.82rem}
+.navlinks a:hover,.navlinks a.active{color:#62e3ec}
+main{overflow:hidden}
+.hero{background:var(--navy);color:#f5fbfc;padding:84px 24px 76px;position:relative;isolation:isolate}
+.hero:before{content:"";position:absolute;z-index:-1;inset:0;background:radial-gradient(ellipse at 78% 24%,rgba(0,169,189,.2),transparent 38%),linear-gradient(115deg,transparent 45%,rgba(18,54,68,.5));pointer-events:none}
+.hero-inner,.wrap{max-width:1080px;margin:auto}
+.eyebrow{color:#66dce5;text-transform:uppercase;letter-spacing:.17em;font-weight:800;font-size:.73rem}
+h1,h2,h3,p{margin-top:0}
+h1{font-size:clamp(2.6rem,6vw,5.1rem);line-height:1.03;letter-spacing:-.055em;max-width:850px;margin:20px 0 20px;font-weight:750}
+h1 span{color:#55dce6}
+.hero p{max-width:700px;color:#c5d5da;font-size:1.08rem}
+.hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
+.pill{border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:8px 13px;color:#d6e6e9;font-size:.8rem}
+.hero-note{margin-top:42px;border-left:3px solid var(--teal);padding:12px 18px;background:rgba(255,255,255,.045);max-width:760px;color:#eaf6f7}
+.wrap{padding:70px 24px}
+.section-head{display:grid;grid-template-columns:130px 1fr;gap:22px;align-items:start;margin-bottom:32px}
+.kicker{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.15em;color:var(--teal-dark);padding-top:9px}
+h2{font-size:clamp(1.9rem,3.8vw,3rem);line-height:1.12;letter-spacing:-.04em;margin-bottom:12px}
+.lede{color:var(--muted);max-width:720px;margin-bottom:0}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);min-width:0}
+.card .num{color:var(--teal-dark);font-size:.76rem;letter-spacing:.12em;font-weight:800}
+.card h3{font-size:1.12rem;line-height:1.3;margin:12px 0 9px}
+.card p{color:var(--muted);font-size:.93rem;margin-bottom:0}
+.band{background:#e7f0f2;border-top:1px solid #dce7ea;border-bottom:1px solid #dce7ea}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.compare-box{padding:27px;border-radius:var(--radius);border:1px solid var(--line);background:#fff}
+.compare-box.after{background:var(--navy);color:#f2fbfc;border-color:var(--navy)}
+.compare-label{font-size:.73rem;text-transform:uppercase;letter-spacing:.14em;font-weight:800;color:var(--teal-dark);margin-bottom:12px}
+.after .compare-label{color:#60dce6}
+.compare-box p{font-size:1.15rem;line-height:1.5;margin:0}
+.small-note{font-size:.85rem;color:var(--muted);margin-top:16px}
+.quote{font-family:Georgia,serif;font-size:1.5rem;line-height:1.45;border-left:3px solid var(--teal);padding:4px 0 4px 22px;margin:0 0 24px;overflow-wrap:anywhere}
+.headline-list{display:grid;gap:12px}
+.headline{display:grid;grid-template-columns:42px 1fr auto;align-items:start;gap:15px;background:white;border:1px solid var(--line);border-radius:16px;padding:20px}
+.headline-num{font-size:.78rem;font-weight:800;color:var(--teal-dark);padding-top:4px}
+.headline h3{font-size:1.04rem;line-height:1.5;margin:0 0 6px;overflow-wrap:anywhere}
+.headline p{font-size:.84rem;color:var(--muted);margin:0}
+.copy-btn{border:1px solid #b7d5da;border-radius:9px;background:#f2fbfc;color:#075d67;padding:8px 12px;font-weight:750;font-size:.8rem;cursor:pointer;min-width:76px}
+.copy-btn:hover{background:#dff6f8}
+.about-block{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:30px}
+.about-text{white-space:pre-line;max-width:800px;line-height:1.8;color:#283e49}
+.about-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}
+.about-top h3{margin:0;font-size:1.1rem}
+.featured-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.featured-card{background:#fff;border:1px solid var(--line);padding:23px;border-radius:15px}
+.featured-card h3{font-size:1rem;margin:12px 0 8px}
+.featured-card p{font-size:.9rem;color:var(--muted);margin-bottom:0}
+.featured-card .tag{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--teal-dark);font-weight:800}
+.banner-preview{background:var(--navy);color:#f4fbfc;border-radius:18px;padding:34px;position:relative;overflow:hidden}
+.banner-preview:after{content:"";position:absolute;right:-50px;top:-80px;width:260px;height:260px;border:1px solid rgba(85,220,230,.22);border-radius:50%;box-shadow:0 0 0 35px rgba(85,220,230,.035),0 0 0 70px rgba(85,220,230,.025)}
+.banner-preview h3{font-size:clamp(1.5rem,3.2vw,2.4rem);line-height:1.15;letter-spacing:-.04em;max-width:650px;margin-bottom:12px;position:relative;z-index:1}
+.banner-preview p{color:#b8d1d8;position:relative;z-index:1}
+.banner-preview .accent{color:#5ce0e8}
+.banner-state{margin-top:18px;font-size:.9rem;color:var(--muted)}
+.footer{background:var(--navy);color:#e9f5f7;padding:54px 24px}
+.footer-inner{max-width:1080px;margin:auto;display:flex;justify-content:space-between;gap:30px;align-items:end}
+.footer p{color:#b7cbd1;max-width:620px;margin-bottom:0}
+.footer a{color:#63dce5}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:760px){.nav{padding:12px 16px;align-items:flex-start;flex-direction:column;gap:8px}.navlinks{max-width:100%;gap:16px}.hero{padding:58px 20px 54px}.wrap{padding:50px 20px}.section-head{grid-template-columns:1fr;gap:8px}.grid,.featured-grid{grid-template-columns:1fr}.compare{grid-template-columns:1fr}.headline{grid-template-columns:28px 1fr;gap:10px}.headline .copy-btn{grid-column:2;justify-self:start}.about-block{padding:22px}.about-top{align-items:flex-start;flex-direction:column}.footer-inner{align-items:flex-start;flex-direction:column}.quote{font-size:1.3rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <nav class="nav" aria-label="Page navigation">
+    <div class="brand">Positioning Review <span style="color:#55dce6">/ Ben Zaryouh</span></div>
+    <div class="navlinks">
+      <a href="#overview">Overview</a><a href="#positioning">Positioning</a><a href="#headline">Headline</a><a href="#about">About</a><a href="#featured">Featured</a><a href="#banner">Banner</a>
+    </div>
+  </nav>
+</header>
+<main>
+<section class="hero" id="overview">
+  <div class="hero-inner">
+    <div class="eyebrow">LinkedIn Positioning Review</div>
+    <h1>Make the <span>silicon vision</span> immediately clear.</h1>
+    <p>Prepared for <strong>Ben Zaryouh</strong>, Founder and CEO of VegaSemi. A focused profile direction that connects deep semiconductor expertise with VegaSemi's runtime silicon intelligence platform.</p>
+    <div class="hero-meta"><span class="pill">Founder positioning</span><span class="pill">Advanced SoCs</span><span class="pill">Runtime silicon intelligence</span></div>
+    <div class="hero-note"><strong>The central opportunity:</strong> lead with the category VegaSemi is defining, then make the practical relevance clear across power, safety, diagnostics and security.</div>
+  </div>
+</section>
+
+<section class="wrap reveal" id="findings">
+  <div class="section-head"><div class="kicker">01 / Overview</div><div><h2>What matters most</h2><p class="lede">The strongest story is already present in the company narrative. The profile can make that story easier to grasp in the first few seconds.</p></div></div>
+  <div class="grid">
+    <article class="card"><div class="num">01</div><h3>Own the category</h3><p>“Runtime silicon intelligence” is a distinctive central idea. Give it clear visual and verbal priority.</p></article>
+    <article class="card"><div class="num">02</div><h3>Translate the architecture</h3><p>Connect the technical thesis to outcomes engineering leaders care about: power behavior, safety, diagnostics and lifecycle integrity.</p></article>
+    <article class="card"><div class="num">03</div><h3>Surface technical proof</h3><p>Make the Unified Silicon Runtime Architecture brief and product white papers easier to discover from the profile.</p></article>
+  </div>
+</section>
+
+<section class="band reveal" id="positioning">
+<div class="wrap">
+  <div class="section-head"><div class="kicker">02 / Positioning</div><div><h2>From technical credentials to a clear market thesis</h2><p class="lede">Your experience spans analog and mixed-signal design, SoC architecture, verification and leadership. VegaSemi adds a forward-looking point of view: silicon should understand and respond to real operating conditions.</p></div></div>
+  <div class="compare">
+    <div class="compare-box"><div class="compare-label">Current direction</div><p>Founder & CEO @ VegaSemi | Runtime Silicon Intelligence for Advanced SoCs</p><div class="small-note">Strong category signal, but the audience and value of the platform remain broad at first glance.</div></div>
+    <div class="compare-box after"><div class="compare-label">Recommended direction</div><p>Founder & CEO, VegaSemi | Runtime Silicon Intelligence for Power, Safety & Diagnostics in Advanced SoCs</p><div class="small-note" style="color:#b9d0d6">Keep the category, then anchor it in the domains the platform serves.</div></div>
+  </div>
+  <p class="small-note">Profile headline shown above is taken from the supplied profile export. LinkedIn may display a different live version.</p>
+</div>
+</section>
+
+<section class="wrap reveal" id="headline">
+  <div class="section-head"><div class="kicker">03 / Headline</div><div><h2>Five headline directions</h2><p class="lede">Each option keeps the technical credibility while emphasizing a slightly different part of the story. Use the copy button to test one directly.</p></div></div>
+  <div class="headline-list">
+    <article class="headline"><div class="headline-num">01</div><div><h3>Founder & CEO, VegaSemi | Runtime Silicon Intelligence for Advanced SoCs</h3><p>Closest to the existing positioning, with cleaner punctuation and a focused category statement.</p></div><button class="copy-btn" data-copy="Founder & CEO, VegaSemi | Runtime Silicon Intelligence for Advanced SoCs">Copy</button></article>
+    <article class="headline"><div class="headline-num">02</div><div><h3>Founder & CEO, VegaSemi | Runtime Intelligence for Power, Safety & Diagnostics in Advanced SoCs</h3><p>Makes the platform's application domains easier to scan.</p></div><button class="copy-btn" data-copy="Founder & CEO, VegaSemi | Runtime Intelligence for Power, Safety & Diagnostics in Advanced SoCs">Copy</button></article>
+    <article class="headline"><div class="headline-num">03</div><div><h3>Building Runtime Silicon Intelligence | Founder & CEO at VegaSemi | Power, Safety & Silicon Integrity</h3><p>Leads with the mission and links it to the broader silicon-integrity story.</p></div><button class="copy-btn" data-copy="Building Runtime Silicon Intelligence | Founder & CEO at VegaSemi | Power, Safety & Silicon Integrity">Copy</button></article>
+    <article class="headline"><div class="headline-num">04</div><div><h3>Semiconductor Executive & SoC Architect | Founder, VegaSemi | AI-Era Power, Safety & Diagnostics</h3><p>Brings personal technical authority forward for audiences discovering Ben beyond the company.</p></div><button class="copy-btn" data-copy="Semiconductor Executive & SoC Architect | Founder, VegaSemi | AI-Era Power, Safety & Diagnostics">Copy</button></article>
+    <article class="headline"><div class="headline-num">05</div><div><h3>Founder & CEO at VegaSemi | Helping Advanced SoCs Respond to Real Runtime Conditions</h3><p>Uses plain-language framing to make the underlying idea more accessible to non-specialist stakeholders.</p></div><button class="copy-btn" data-copy="Founder & CEO at VegaSemi | Helping Advanced SoCs Respond to Real Runtime Conditions">Copy</button></article>
+  </div>
+  <p class="small-note">Suggested starting point: Option 02 if you want the profile to explain the platform domains quickly. Option 01 is the most conservative edit.</p>
+</section>
+
+<section class="band reveal" id="about">
+<div class="wrap">
+  <div class="section-head"><div class="kicker">04 / About</div><div><h2>Give the profile a founder-level narrative</h2><p class="lede">The supplied profile summary establishes strong design breadth, but it does not yet explain the thesis behind VegaSemi or connect Ben's career arc to the company's current direction.</p></div></div>
+  <div class="compare" style="margin-bottom:22px">
+    <div class="compare-box"><div class="compare-label">Current About / Summary</div><p class="quote">“Extensive experience in SoC/ASIC VLSI design, covering analog and mixed-signal architecture, design, verification, physical implementation, and design methodology.”</p><p class="small-note">Strength: concise and technically grounded. Gap: it reads as a capability summary rather than a founder's point of view.</p></div>
+    <div class="compare-box"><div class="compare-label">What to add</div><p>Why runtime awareness matters now, what VegaSemi is building, which silicon domains it connects, and how to start a technical conversation.</p></div>
+  </div>
+  <div class="about-block">
+    <div class="about-top"><h3>Proposed About section</h3><button class="copy-btn" id="copyAbout" data-copy-target="newAbout">Copy About</button></div>
+    <div class="about-text" id="newAbout">I work at the intersection of semiconductor architecture, analog and mixed-signal design, and the next generation of intelligent SoCs.
+
+As Founder and CEO of VegaSemi, I am focused on a simple but important shift: advanced silicon needs to understand what is happening while it operates, not rely only on assumptions made at design time.
+
+VegaSemi is developing runtime silicon intelligence through a unified architecture that connects power management, functional safety, structural diagnostics, security, reliability, and silicon lifecycle awareness.
+
+The goal is to help engineering teams reason about real operating conditions across the silicon lifecycle, from dynamic workloads and voltage behavior to in-field integrity and diagnostics.
+
+My background spans SoC and ASIC design, analog and mixed-signal architecture, verification, physical implementation, and semiconductor engineering leadership.
+
+I am especially interested in conversations around:
+• Runtime power and timing intelligence
+• Functional safety and silicon integrity
+• Structural diagnostics from manufacturing to field operation
+• More unified approaches to advanced SoC architecture
+
+If you are working on advanced silicon, AI hardware, automotive systems, datacenter platforms, or other demanding SoC applications, I welcome thoughtful technical discussions and potential collaboration.
+
+Explore VegaSemi's architecture and technical resources at vegasemi.com.</div>
+  </div>
+  <p class="small-note">The draft is based on the supplied career profile and VegaSemi's public positioning. Review any technical wording for preferred terminology before publishing.</p>
+</div>
+</section>
+
+<section class="wrap reveal" id="featured">
+  <div class="section-head"><div class="kicker">05 / Featured</div><div><h2>Make the technical evidence easier to reach</h2><p class="lede">The live Featured section was not visible in the supplied profile export, so these are recommended assets to surface, not claims about what is currently displayed.</p></div></div>
+  <div class="featured-grid">
+    <article class="featured-card"><div class="tag">01 / Architecture</div><h3>Unified Silicon Runtime Architecture</h3><p>Lead with the architecture brief to establish the system-level thesis behind the product family.</p></article>
+    <article class="featured-card"><div class="tag">02 / Product</div><h3>VegaPower white paper</h3><p>Show a concrete entry point for teams evaluating runtime power intelligence and power integrity.</p></article>
+    <article class="featured-card"><div class="tag">03 / Platform</div><h3>VegaSafe and VegaTest resources</h3><p>Surface safety and diagnostics material to show how the architecture extends beyond power management.</p></article>
+  </div>
+  <p class="small-note">Resources: <a href="https://vegasemi.com/resources.html" target="_blank" rel="noopener">VegaSemi technical library</a>.</p>
+</section>
+
+<section class="band reveal" id="banner">
+<div class="wrap">
+  <div class="section-head"><div class="kicker">06 / Banner</div><div><h2>Let the banner explain the platform at a glance</h2><p class="lede">The banner's main job is category clarity. It should make “runtime silicon intelligence” memorable and show the four connected domains without turning the cover image into a product catalog.</p></div></div>
+  <div class="banner-preview">
+    <div class="eyebrow">VegaSemi</div>
+    <h3>Runtime <span class="accent">Silicon Intelligence</span></h3>
+    <p>Power · Safety · Diagnostics · Security</p>
+  </div>
+  <p class="banner-state"><strong>Your new banner is attached separately.</strong> The direction uses a dark semiconductor-inspired visual system with cyan highlights, restrained technical imagery and one clear category message.</p>
+</div>
+</section>
+
+<section class="wrap reveal" id="next">
+  <div class="section-head"><div class="kicker">07 / Next step</div><div><h2>A clearer profile story</h2><p class="lede">Keep the technical depth. Make the central thesis easier to recognize. Give visitors a direct path from the founder's profile to VegaSemi's architecture and technical resources.</p></div></div>
+  <div class="compare">
+    <div class="compare-box"><div class="compare-label">Current emphasis</div><p>Career breadth and runtime silicon intelligence for advanced SoCs.</p></div>
+    <div class="compare-box after"><div class="compare-label">Proposed emphasis</div><p>A founder defining runtime silicon intelligence, connected to practical domains and supported by clear technical resources.</p></div>
+  </div>
+  <p class="small-note">Public references: <a href="https://vegasemi.com/" target="_blank" rel="noopener">VegaSemi website</a> · <a href="https://vegasemi.com/resources.html" target="_blank" rel="noopener">Technical resources</a> · <a href="https://www.linkedin.com/in/ben-zaryouh-71169b36" target="_blank" rel="noopener">Ben's LinkedIn profile</a>.</p>
+</section>
+</main>
+<footer class="footer"><div class="footer-inner"><div><div class="eyebrow">LinkedIn Positioning Review</div><h2 style="font-size:1.7rem;margin:10px 0">Prepared for Ben Zaryouh</h2><p>A focused positioning direction for the founder profile and VegaSemi's runtime silicon intelligence story.</p></div><a href="#overview">Back to top ↑</a></div></footer>
+<script>
+(function(){
+  const copyText = async (text, button) => {
+    try {
+      if (navigator.clipboard && window.isSecureContext) await navigator.clipboard.writeText(text);
+      else {
+        const area = document.createElement('textarea');
+        area.value = text; area.style.position = 'fixed'; area.style.opacity = '0';
+        document.body.appendChild(area); area.select();
+        const ok = document.execCommand('copy'); area.remove();
+        if (!ok) throw new Error('Copy failed');
+      }
+      const original = button.textContent;
+      button.textContent = 'Copied';
+      button.setAttribute('aria-live','polite');
+      setTimeout(()=>{button.textContent=original;},1500);
+    } catch(e) {
+      button.textContent = 'Select text';
+      const range = document.createRange();
+      const target = document.getElementById(button.dataset.copyTarget);
+      if(target){range.selectNodeContents(target);const sel=window.getSelection();sel.removeAllRanges();sel.addRange(range);}
+    }
+  };
+  document.querySelectorAll('[data-copy]').forEach(btn=>{
+    btn.addEventListener('click',()=>copyText(btn.dataset.copy,btn));
+  });
+  const aboutBtn=document.getElementById('copyAbout');
+  aboutBtn.addEventListener('click',()=>copyText(document.getElementById('newAbout').innerText,aboutBtn));
+  const links=[...document.querySelectorAll('.navlinks a')];
+  const sections=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+entry.target.id));
+      }
+    });
+  },{rootMargin:'-20% 0px -65% 0px'});
+  sections.forEach(s=>observer.observe(s));
+  const reveals=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    const revealObserver=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');revealObserver.unobserve(entry.target);}});
+    },{threshold:.08});
+    reveals.forEach(el=>revealObserver.observe(el));
+  } else reveals.forEach(el=>el.classList.add('visible'));
+})();
+</script>
+</body>
+</html>
